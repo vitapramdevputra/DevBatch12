@@ -1,0 +1,18 @@
+//latest created 3 account
+
+
+SELECT Id, name FROM Account
+
+Select id, name, mailingcity from contact where Name like '%v%'
+
+
+SELECT Id, name, industry, phone from account where phone != null
+
+SELECT Id, Name, Priority__c, Status__c, Subject__c 
+FROM Salesforce_Ticket__c where status__c != '' and priority__c != 'high'
+
+SELECT Id, Name, Priority__c, Status__c, Subject__c 
+FROM Salesforce_Ticket__c where status__c != '' and priority__c in ('high', 'medium')
+
+SELECT Id, Name, Priority__c, Status__c, Subject__c 
+FROM Salesforce_Ticket__c where status__c != '' and (priority__c = 'high' or  priority__c = 'medium')
