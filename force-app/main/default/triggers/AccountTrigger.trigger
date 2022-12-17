@@ -3,6 +3,10 @@ trigger AccountTrigger on Account (before insert, before update, after insert, a
     if (Trigger.isBefore) {
         AccountTriggerHandler.updateAccountDescription(trigger.new, trigger.old, trigger.newMap, trigger.oldMap);
     }
+    if (Trigger.isAfter && Trigger.isUpdate) {
+        //call method to update VIP fields of all contacts.
+        AccountTriggerHandler.updateVIPforContacts(trigger.new, trigger.old, trigger.newMap, trigger.oldMap);
+    }
     /*
     List<account> accTriggerNew = trigger.new;
     List<account> accTriggerOld = trigger.old;
