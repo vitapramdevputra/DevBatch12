@@ -1,5 +1,5 @@
-public class Calculator {
-   public void welcomeMessage(){
+public class Calculator3 {
+    public void welcomeMessage(){
         //system.debug --> to print, and TO DEBUG our code.
         //we use it whenever we want to UNDERSTAND what our code is doing.
         system.debug('welcome to apex calc');
@@ -36,5 +36,4 @@ public class Calculator {
         boolean lp = date.isLeapYear(year); //isLeapYear is also a built in method of DATE class.
         return lp;
    }
-
 }
