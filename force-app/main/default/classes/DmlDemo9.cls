@@ -52,6 +52,7 @@ public class DmlDemo9 {
         system.debug('cnt -> ' + cnt);
     }
 
+    
     public static void dmlInsertDemo_5() {
         Salesforce_Project__c sp = [select id from Salesforce_Project__c ORDER BY CreatedDate DESC LIMIT 1];
 
