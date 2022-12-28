@@ -1,6 +1,7 @@
 public class AccountTriggerHandler {
     public static void updateAccountDescription(List<account> accTriggerNew, List<account> accTriggerOld, 
                                     Map<id, account> accTriggerNewMap, Map<id, account> accTriggerOldMap) {
+        system.debug('inside update description');
         for (Account eachAccount : accTriggerNew) {
             boolean updateDesc = false;
             if (Trigger.isInsert && eachAccount.Active__c == 'Yes') {
@@ -18,6 +19,7 @@ public class AccountTriggerHandler {
                 eachAccount.Description = 'Account is now Active. Enjoy, celebrate, have fun.';
             }
         }
+        system.debug('almost done with update description');
     }
 
     public static void updateVIPforContacts(List<account> accTriggerNew, List<account> accTriggerOld, 
