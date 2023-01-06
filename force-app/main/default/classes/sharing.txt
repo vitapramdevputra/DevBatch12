@@ -1,0 +1,22 @@
+with sharing Class A
+    * call method of class B
+    * call method C of class C
+    * call method D of class D
+    - method A [will run in WITH SHARING mode no matter from where it is called]
+
+without sharing Class B
+    - method B [will run in WITHOUT SHARING mode no matter from where it is called]
+    * method A of class A is called form here
+    * call method C of class C
+    * call method D of class D
+
+inherited sharing Class C
+    - method C  [will run in WITH SHARING mode when called from Class A]
+                [will run in WITHOUT SHARING mode when called from Class B]
+                [from trigger, visualforce, lwc, flow etc --> WITH SHARING mode]
+
+
+Class D (omitted sharing)
+    - method D [will run in WITH SHARING mode when called from Class A]
+               [will run in WITHOUT SHARING mode when called from Class B]
+               [from trigger, visualforce, lwc, flow etc --> WITHOUT SHARING mode]

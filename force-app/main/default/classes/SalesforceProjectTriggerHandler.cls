@@ -2,11 +2,15 @@ public class SalesforceProjectTriggerHandler {
    public static void createDefaultTicket(List<salesforce_project__c> spTriggerNew) {
         try{
             List<Salesforce_Ticket__c> stList = new list<Salesforce_Ticket__c>();
+            DefaultTicketInfo__c defaultValues = DefaultTicketInfo__c.getOrgDefaults();
             for (salesforce_project__c eachSP : spTriggerNew) {
                 Salesforce_Ticket__c st  = new Salesforce_Ticket__c();
-                st.Subject__c = 'Default st';
+                //set subject as custom setting's subject value
+                st.Subject__c = defaultValues.Subject__c; //do not hard code this. make it a little dynamic.
                 st.Salesforce_Project__c = eachSP.id;
                 st.Priority__c = 'Medium';
+                //set Description__c as custom setting's Description__c value
+                st.Description__c = defaultValues.description__c;
                 stList.add(st);
             }
             if (!stList.isEmpty()) {
